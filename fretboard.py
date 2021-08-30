@@ -17,10 +17,11 @@ notes.append(noteCircle[initialPosition])
 currentPosition = initialPosition + 1
 
 for fret in range(fretboardLength):
-	#	++fret
 	notes.append(noteCircle[currentPosition])
 	if currentPosition == 11:
 		currentPosition = 0
 	else:
 		currentPosition += 1
-	print(notes)
+
+for note in notes:
+	print(note)
