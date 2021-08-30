@@ -42,9 +42,33 @@ def main():
 		# Append fretboard_strings list with a list containing the notes of the current string
 		fretboard_strings.append(notes)
 
+	# for guitar_string in fretboard_strings:
+	# 	for note in guitar_string:
+	# 		print(note)
+	# 	print('\n')
+
+	fretboard_diagram = ""
 	for guitar_string in fretboard_strings:
-		for note in guitar_string:
-			print(note)
-		print('\n')
+		fretboard_diagram = fretboard_diagram + guitar_string[0]
+		if guitar_string[0].endswith('#'):
+			fretboard_diagram = fretboard_diagram + ' '
+		else:
+			fretboard_diagram = fretboard_diagram + '  '
+	fretboard_diagram = fretboard_diagram + '\n'
+
+	for i in range(len(fretboard_strings)):
+		fretboard_diagram = fretboard_diagram + '-- '
+	fretboard_diagram = fretboard_diagram + '\n'
+
+	for fret in range(fretboard_length):
+		for guitar_string in fretboard_strings:
+			fretboard_diagram = fretboard_diagram + guitar_string[fret + 1]
+			if fretboard_diagram.endswith('#'):
+				fretboard_diagram = fretboard_diagram + ' '
+			else:
+				fretboard_diagram = fretboard_diagram + '  '
+		fretboard_diagram = fretboard_diagram + '\n'
+	print(fretboard_diagram)
+
 
 main()
