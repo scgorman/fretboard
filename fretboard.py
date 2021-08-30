@@ -1,27 +1,50 @@
-noteCircle = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
+def main():
 
-tune = ''
-fretboardLength = int
+	note_circle = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
 
-# initial input
-tune = input('What is the string tuned to?\n')
-tune = tune.upper()
+	# # initial input
+	# # set amount of guitar strings to 6 rather than use an input for convenient testing
+	guitar_string_amount = 6
+	guitar_string_tunes = []
 
-fretboardLength = int(input('How many frets does the guitar have?\n'))
+	# # set tunings to E standard tuning for convenient testing
+	# print('Start at the high string.')
+	# for guitar_string in range(guitar_string_amount):
+	# 	tune = input('What is string ' + str(guitar_string + 1) + ' tuned to?\n')
+	# 	tune = tune.upper()
+	# 	guitar_string_tunes.append(tune)
+	guitar_string_tunes = ['E', 'A', 'D', 'G', 'B', 'E']
 
-# figure out notes
-notes = []
-initialPosition = int(noteCircle.index(tune))
+	# # fretboard_length set to 12 for convenient testing. A fretboard length of 12 should end with the same note as the
+	# # open string. For example, an E string should cycle through the note circle and the 12th fret should be E.
+	# fretboard_length = int(input('How many frets does the guitar have?\n'))
+	fretboard_length = 12
 
-notes.append(noteCircle[initialPosition])
-currentPosition = initialPosition + 1
+	fretboard_strings = []
+	for guitar_string in guitar_string_tunes:
 
-for fret in range(fretboardLength):
-	notes.append(noteCircle[currentPosition])
-	if currentPosition == 11:
-		currentPosition = 0
-	else:
-		currentPosition += 1
+		# figure out notes
+		notes = []
+		initial_position = int(note_circle.index(guitar_string))
 
-for note in notes:
-	print(note)
+		notes.append(note_circle[initial_position])
+		current_position = initial_position + 1
+
+		for fret in range(fretboard_length):
+
+			notes.append(note_circle[current_position])
+
+			if current_position == 11:
+				current_position = 0
+			else:
+				current_position += 1
+
+		# Append fretboard_strings list with a list containing the notes of the current string
+		fretboard_strings.append(notes)
+
+	for guitar_string in fretboard_strings:
+		for note in guitar_string:
+			print(note)
+		print('\n')
+
+main()
