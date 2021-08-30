@@ -2,17 +2,23 @@ def main():
 
 	note_circle = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
 
-	#  initial input
-	guitar_string_amount = int(input('How many strings does your guitar have?\n'))
+	# # initial input
+	# # set amount of guitar strings to 6 rather than use an input for convenient testing
+	guitar_string_amount = 6
 	guitar_string_tunes = []
 
-	print('Start at the high string.')
-	for guitar_string in range(guitar_string_amount):
-		tune = input('What is string ' + str(guitar_string + 1) + ' tuned to?\n')
-		tune = tune.upper()
-		guitar_string_tunes.append(tune)
+	# # set tunings to E standard tuning for convenient testing
+	# print('Start at the high string.')
+	# for guitar_string in range(guitar_string_amount):
+	# 	tune = input('What is string ' + str(guitar_string + 1) + ' tuned to?\n')
+	# 	tune = tune.upper()
+	# 	guitar_string_tunes.append(tune)
+	guitar_string_tunes = ['E', 'A', 'D', 'G', 'B', 'E']
 
-	fretboard_length = int(input('How many frets does the guitar have?\n'))
+	# # fretboard_length set to 12 for convenient testing. A fretboard length of 12 should end with the same note as the
+	# # open string. For example, an E string should cycle through the note circle and the 12th fret should be E.
+	# fretboard_length = int(input('How many frets does the guitar have?\n'))
+	fretboard_length = 12
 
 	fretboard_strings = []
 	for guitar_string in guitar_string_tunes:
@@ -65,4 +71,5 @@ def main():
 	print(fretboard_diagram)
 
 
-main()
+if __name__ == '__main__':
+	main()
