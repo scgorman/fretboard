@@ -67,8 +67,15 @@ class GuitarString:
 
 class Fretboard:
 
-    def __init__(self, guitar_strings):
+    def __init__(self, guitar_strings, fretboard):
         self.guitar_strings = guitar_strings
+        self.fretboard = fretboard
+
+    def build_fretboard(self, guitar_strings, fretboard):
+        for guitar_string in guitar_strings:
+            for note in guitar_string.notes():
+                fretboard.append(note)
+        self.fretboard = fretboard
 
     def set_guitar_strings(self, guitar_strings):
         self.guitar_strings = guitar_strings
